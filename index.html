@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SC Editor Web</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">SC Editor <span>Web</span></div>
+  <label class="file-btn">Open .SC / .SC2 / .SCTX
+    <input id="fileInput" type="file" accept=".sc,.sc2,.sctx,*/*" hidden>
+  </label>
+  <button id="clearBtn" class="ghost">Close</button>
+</header>
+
+<main class="layout">
+  <section class="viewer-wrap">
+    <div id="drop" class="drop">
+      <div class="drop-icon">＋</div>
+      <h2>Drop a Supercell file here</h2>
+      <p>or use <b>Open .SC / .SC2 / .SCTX</b></p>
+      <small>Files stay in your browser and are not uploaded anywhere.</small>
+    </div>
+    <canvas id="canvas"></canvas>
+    <div id="status" class="status">No file loaded</div>
+  </section>
+
+  <aside class="side">
+    <div class="tabs">
+      <button class="tab active" data-tab="objects">Objects</button>
+      <button class="tab" data-tab="textures">Textures</button>
+      <button class="tab" data-tab="info">Info</button>
+    </div>
+    <div id="objects" class="panel active">
+      <div id="objectList" class="empty">Open a .sc/.sc2 file to inspect it.</div>
+    </div>
+    <div id="textures" class="panel">
+      <div class="empty">Texture extraction is not enabled in this first web build.</div>
+    </div>
+    <div id="info" class="panel">
+      <div id="infoBox" class="empty">No file loaded.</div>
+    </div>
+
+    <div class="inspector">
+      <div class="inspector-title">Sprite Inspector</div>
+      <label>X <input id="x" type="number" value="0"></label>
+      <label>Y <input id="y" type="number" value="0"></label>
+      <label>Rotation <input id="rot" type="range" min="-180" max="180" value="0"></label>
+      <div class="value" id="rotVal">0°</div>
+      <label>Scale X <input id="sx" type="range" min="25" max="300" value="100"></label>
+      <div class="value" id="sxVal">1.00×</div>
+      <label>Scale Y <input id="sy" type="range" min="25" max="300" value="100"></label>
+      <div class="value" id="syVal">1.00×</div>
+      <button id="reset" class="reset">Reset transform</button>
+    </div>
+  </aside>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
